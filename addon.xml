@@ -11,11 +11,11 @@
         <platform>all</platform>
         <summary lang="en">Amazon Prime Instant Video Add-on (DE/UK)</summary>
         <language></language>
-        <description lang="en">Amazon Prime Instant Video Add-on (DE/UK)</description>
+        <description lang="en">Amazon Prime Instant Video Add-on (IN)</description>
         <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
         <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
         <source>https://github.com/XLordKX/kodi</source>
         <forum>http://www.kodinerds.net</forum>
-        <website>http://www.amazon.com</website>
+        <website>http://www.amazon.in</website>
     </extension>
 </addon>

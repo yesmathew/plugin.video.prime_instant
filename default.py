@@ -74,9 +74,9 @@ watchlistTVOrder = addon.getSetting("watchlistTVOrder")
 watchlistTVOrder = ["DATE_ADDED_DESC", "TITLE_ASC"][int(watchlistTVOrder)]
 selectLanguage = addon.getSetting("selectLanguage")
 siteVersion = addon.getSetting("siteVersion")
-apiMain = ["atv-ps", "atv-ps-eu", "atv-ps-eu"][int(siteVersion)]
-marketplaceId=["ATVPDKIKX0DER", "A1F83G8C2ARO7P", "A1PA6795UKMFR9", "A1VC38T7YXB528"][int(siteVersion)]
-siteVersionsList = ["com", "co.uk", "de", "jp"]
+apiMain = ["atv-ps", "atv-ps", "atv-ps-eu", "atv-ps-eu"][int(siteVersion)]
+marketplaceId=["A21TJRUUN4KGV", "ATVPDKIKX0DER", "A1F83G8C2ARO7P", "A1PA6795UKMFR9", "A1VC38T7YXB528"][int(siteVersion)]
+siteVersionsList = ["in", "com", "co.uk", "de", "jp"]
 siteVersion = siteVersionsList[int(siteVersion)]
 viewIdMovies = addon.getSetting("viewIdMovies")
 viewIdShows = addon.getSetting("viewIdShows")
@@ -85,6 +85,10 @@ viewIdEpisodes = addon.getSetting("viewIdEpisodes")
 viewIdDetails = addon.getSetting("viewIdDetails")
 urlMainS = "https://www.amazon."+siteVersion
 urlMain = "http://www.amazon."+siteVersion
+if siteVersion=="in":
+    urlMainS = "https://www.primevideo.com/"
+    urlMain = "http://www.primevideo.com/"
+    
 addon.setSetting('email', '')
 addon.setSetting('password', '')
 
@@ -153,6 +157,14 @@ def browseTV():
         addDir(translation(30010), urlMain+"/gp/search/ajax/?_encoding=UTF8&keywords=[OV]&rh=n%3A3010075031%2Cn%3A3015916031%2Ck%3A[OV]%2Cp_85%3A3282148031&sort=date-desc-rank", 'listShows', "")
         addDir(translation(30008), urlMain+"/gp/search/ajax/?_encoding=UTF8&bbn=3279204031&rh=n%3A3279204031%2Cn%3A3010075031%2Cn%3A3015916031&sort=date-desc-rank", 'listShows', "")
         addDir(translation(30999), urlMain+"/gp/search/ajax/?_encoding=UTF8&rh=n%3A3010075031%2Cn%3A3356019031%2Cn%3A4225009031&sort=popularity-rank", 'listShows', "")
+    elif siteVersion=="in":
+        addDir(translation(30006), urlMain+"/gp/search/ajax/?_encoding=UTF8&rh=n%3A2858778011%2Cn%3A7613705011&sort=popularity-rank", 'listShows', "")
+        addDir(translation(30011), urlMain+"/gp/search/other/?rh=n%3A2676882011%2Cn%3A7613705011&pickerToList=theme_browse-bin&ie=UTF8", 'listGenres', "", "tv")
+        addDir(translation(30012), urlMain+"/gp/search/other/?rh=n%3A2676882011%2Cn%3A7613705011&pickerToList=feature_five_browse-bin&ie=UTF8", 'listGenres', "", "tv")
+        addDir(translation(30013), urlMain+"/gp/search/other/?rh=n%3A2676882011%2Cn%3A7613705011&pickerToList=feature_six_browse-bin&ie=UTF8", 'listGenres', "", "tv")
+        if showKids:
+            addDir(translation(30007), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613705011%2Cp_n_theme_browse-bin%3A2650365011&sort=csrank&ie=UTF8", 'listShows', "")
+        addDir(translation(30008), urlMain+"/gp/search/ajax/?_encoding=UTF8&rh=n%3A2858778011%2Cn%3A7613705011&sort=date-desc-rank", 'listShows', "")
     elif siteVersion=="com":
         addDir(translation(30006), urlMain+"/gp/search/ajax/?_encoding=UTF8&rh=n%3A2858778011%2Cn%3A7613705011&sort=popularity-rank", 'listShows', "")
         addDir(translation(30011), urlMain+"/gp/search/other/?rh=n%3A2676882011%2Cn%3A7613705011&pickerToList=theme_browse-bin&ie=UTF8", 'listGenres', "", "tv")
@@ -182,6 +194,14 @@ def listDecadesMovie():
         addDir(translation(30020), urlMain+"/gp/search/ajax/?rh=n%3A3279204031%2Cn%3A!3010076031%2Cn%3A3356018031%2Cp_n_feature_three_browse-bin%3A3289646031&sort=popularity-rank&ie=UTF8", 'listMovies', "")
         addDir(translation(30021), urlMain+"/gp/search/ajax/?rh=n%3A3279204031%2Cn%3A!3010076031%2Cn%3A3356018031%2Cp_n_feature_three_browse-bin%3A3289647031&sort=popularity-rank&ie=UTF8", 'listMovies', "")
         addDir(translation(30022), urlMain+"/gp/search/ajax/?rh=n%3A3279204031%2Cn%3A!3010076031%2Cn%3A3356018031%2Cp_n_feature_three_browse-bin%3A3289648031&sort=popularity-rank&ie=UTF8", 'listMovies', "")
+    elif siteVersion=="in":
+        addDir(translation(30016), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_feature_three_browse-bin%3A2651255011&sort=popularity-rank&ie=UTF8", 'listMovies', "")
+        addDir(translation(30017), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_feature_three_browse-bin%3A2651256011&sort=popularity-rank&ie=UTF8", 'listMovies', "")
+        addDir(translation(30018), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_feature_three_browse-bin%3A2651257011&sort=popularity-rank&ie=UTF8", 'listMovies', "")
+        addDir(translation(30019), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_feature_three_browse-bin%3A2651258011&sort=popularity-rank&ie=UTF8", 'listMovies', "")
+        addDir(translation(30020), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_feature_three_browse-bin%3A2651259011&sort=popularity-rank&ie=UTF8", 'listMovies', "")
+        addDir(translation(30021), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_feature_three_browse-bin%3A2651260011&sort=popularity-rank&ie=UTF8", 'listMovies', "")
+        addDir(translation(30022), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_feature_three_browse-bin%3A2651261011&sort=popularity-rank&ie=UTF8", 'listMovies', "")
     elif siteVersion=="com":
         addDir(translation(30016), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_feature_three_browse-bin%3A2651255011&sort=popularity-rank&ie=UTF8", 'listMovies', "")
         addDir(translation(30017), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_feature_three_browse-bin%3A2651256011&sort=popularity-rank&ie=UTF8", 'listMovies', "")
@@ -205,6 +225,8 @@ def listOriginals():
     content = ""
     if siteVersion=="de":
         content = getUnicodePage(urlMain+"/b/?ie=UTF8&node=5457207031")
+    elif siteVersion=="in":
+        content = getUnicodePage(urlMain+"/b/?ie=UTF8&node=10882806031")
     elif siteVersion=="com":
         content = getUnicodePage(urlMain+"/b/?ie=UTF8&node=9940930011")
     elif siteVersion=="co.uk":

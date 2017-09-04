@@ -85,9 +85,9 @@ viewIdEpisodes = addon.getSetting("viewIdEpisodes")
 viewIdDetails = addon.getSetting("viewIdDetails")
 urlMainS = "https://www.amazon."+siteVersion
 urlMain = "http://www.amazon."+siteVersion
-if siteVersion=="in":
-    urlMainS = "https://www.primevideo.com/"
-    urlMain = "http://www.primevideo.com/"
+#if siteVersion=="in":
+#    urlMainS = "https://www.primevideo.com/"
+#    urlMain = "http://www.primevideo.com/"
     
 addon.setSetting('email', '')
 addon.setSetting('password', '')
@@ -125,6 +125,15 @@ def browseMovies():
         addDir(translation(30008), urlMain+"/gp/search/ajax/?_encoding=UTF8&rh=n%3A3279204031%2Cn%3A!3010076031%2Cn%3A3356018031&sort=date-desc-rank", 'listMovies', "")
         addDir(translation(30009), urlMain+"/s/?n=4963842031&_encoding=UTF", 'listMovies', "")
         addDir(translation(30999), urlMain+"/gp/search/ajax/?_encoding=UTF8&rh=n%3A3010075031%2Cn%3A3356018031%2Cn%3A4225009031&sort=popularity-rank", 'listMovies', "")
+    elif siteVersion=="in":
+        addDir(translation(30006), urlMain+"/gp/search/ajax/?_encoding=UTF8&rh=n%3A2858778011%2Cn%3A7613704011&sort=popularity-rank", 'listMovies', "")
+        addDir(translation(30011), urlMain+"/gp/search/other/?rh=n%3A2676882011%2Cn%3A7613704011&pickerToList=theme_browse-bin&ie=UTF8", 'listGenres', "", "movie")
+        addDir(translation(30012), urlMain+"/gp/search/other/?rh=n%3A2676882011%2Cn%3A7613704011&pickerToList=feature_five_browse-bin&ie=UTF8", 'listGenres', "", "movie")
+        addDir(translation(30013), urlMain+"/gp/search/other/?rh=n%3A2676882011%2Cn%3A7613704011&pickerToList=feature_six_browse-bin&ie=UTF8", 'listGenres', "", "movie")
+        addDir(translation(30014), "", 'listDecadesMovie', "")
+        if showKids:
+            addDir(translation(30007), urlMain+"/gp/search/ajax/?rh=n%3A2676882011%2Cn%3A7613704011%2Cp_n_theme_browse-bin%3A2650365011&ie=UTF8", 'listMovies', "")
+        addDir(translation(30008), urlMain+"/gp/search/ajax/?_encoding=UTF8&rh=n%3A2858778011%2Cn%3A7613704011&sort=date-desc-rank", 'listMovies', "")
     elif siteVersion=="com":
         addDir(translation(30006), urlMain+"/gp/search/ajax/?_encoding=UTF8&rh=n%3A2858778011%2Cn%3A7613704011&sort=popularity-rank", 'listMovies', "")
         addDir(translation(30011), urlMain+"/gp/search/other/?rh=n%3A2676882011%2Cn%3A7613704011&pickerToList=theme_browse-bin&ie=UTF8", 'listGenres', "", "movie")
